@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_import": 1,
+ "autoname": "autoincrement",
+ "creation": "2026-06-18 10:34:24.261480",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "skill_name",
+  "skill_category"
+ ],
+ "fields": [
+  {
+   "fieldname": "skill_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Skill Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "skill_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Skill Category",
+   "options": "\nSports\nEntrepreneurial Skill\nArts\nCultural\nCrafts\nVocational\nLivelihood\nDigital India & Gig Economy\nGreen & Solar Skills",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:19:40.401497",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Skills",
+ "naming_rule": "Autoincrement",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "skill_name, skill_category",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "skill_name"
+}
