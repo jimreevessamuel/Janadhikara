@@ -1,0 +1,599 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_import": 1,
+ "autoname": "format:FM{###}",
+ "creation": "2026-04-23 14:21:45.113292",
+ "default_view": "Report",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_pziz",
+  "organization",
+  "cluster",
+  "zone",
+  "ward_panchayat_name",
+  "slum_settlement_name",
+  "name_of_the_slum__settlement",
+  "street_name_lane_name",
+  "household_id",
+  "name_of_the_household_head",
+  "name_of_the_person",
+  "relationship_with_the_household_head",
+  "gender",
+  "date_of_birth",
+  "dob_is_an_assumption",
+  "age",
+  "age_at_entry",
+  "child_youth",
+  "disability_status",
+  "has_major_health_concern",
+  "major_health_concern",
+  "orphan",
+  "single_parent",
+  "father_name_capture",
+  "mother_name_capture",
+  "father_name_hidden",
+  "mother_name_hidden",
+  "column_break_cnad",
+  "currently_enrolled_in_school",
+  "school_attendance_status",
+  "school_type",
+  "medium_of_learning",
+  "if_not_in_school",
+  "others_if_not_in_school",
+  "completed_education_status",
+  "marital_status",
+  "contact_number",
+  "parent_guardian_contact_number",
+  "mother_tongue",
+  "caste",
+  "religion",
+  "occupation",
+  "annual_income_member",
+  "mother_occupation",
+  "father_occupation",
+  "program_status",
+  "source",
+  "legacy_member_code",
+  "validation_status",
+  "verify_family_member",
+  "title_summary",
+  "household_summary_html",
+  "tab_activity_summary",
+  "participation_summary_html",
+  "yc_summary_html",
+  "event_summary_html",
+  "health_summary_html",
+  "welfare_summary_html",
+  "education_summary_html",
+  "health_referral_summary",
+  "youth_career_activity_summary",
+  "dropout_summary_html",
+  "scs_summary_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_pziz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "household_id.name_of_the_organization",
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "household_id.cluster_name",
+   "fieldname": "cluster",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Cluster",
+   "options": "Cluster Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "cluster.zone",
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Zone",
+   "options": "Zone Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "household_id.ward",
+   "fieldname": "ward_panchayat_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Ward / Panchayat Name",
+   "options": "Ward Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "household_id.settlement_name",
+   "fieldname": "slum_settlement_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Slum / Settlement Name",
+   "options": "Slum - Settlement Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "name_of_the_slum__settlement",
+   "fieldtype": "Data",
+   "label": "Name of the Slum / settlement",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "household_id.street_name__lane_name",
+   "fieldname": "street_name_lane_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Street Name / Lane Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "household_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Household ID",
+   "options": "Household Profile",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "household_id.hh_head",
+   "fieldname": "name_of_the_household_head",
+   "fieldtype": "Read Only",
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "is_virtual": 1,
+   "label": "Name of the Household Head"
+  },
+  {
+   "fieldname": "name_of_the_person",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of the person",
+   "reqd": 1
+  },
+  {
+   "fieldname": "relationship_with_the_household_head",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Relationship with the household head",
+   "options": "\nSelf\nSpouse\nSon\nSon in law\nDaughter\nDaughter in law\nFather\nMother\nBrother\nSister\nGrand father\nGrand mother\nGrand son\nGrand daughter\nFather in law\nMother in law\nBrother in law\nSister in Law\nCousin\nNephew\nNiece\nUncle\nAunt\nOthers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gender",
+   "options": "\nMale\nFemale\nOthers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "dob_is_an_assumption",
+   "fieldtype": "Check",
+   "label": "DoB is approximately captured"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Age",
+   "read_only": 1
+  },
+  {
+   "fieldname": "age_at_entry",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Age at entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "child_youth",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Child or Youth Category",
+   "options": "\nChild\nYouth",
+   "read_only": 1
+  },
+  {
+   "default": "None",
+   "fieldname": "disability_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Disability status",
+   "options": "\nNone\nBlindness\nLow Vision\nLeprosy Cured Persons\nHearing Impairment (Deaf and Hard of Hearing)\nLocomotor Disability\nDwarfism\nIntellectual Disability\nMental Illness\nAutism Spectrum Disorder\nCerebral Palsy\nMuscular Dystrophy\nChronic Neurological Conditions\nSpecific Learning Disabilities\nMultiple Sclerosis\nSpeech and Language Disability\nThalassemia\nHemophilia\nSickle Cell Disease\nMultiple Disabilities (More than one of the above)\nAcid Attack Victims\nParkinson\u2019s Disease"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_major_health_concern",
+   "fieldtype": "Check",
+   "label": "Has Major Health Concern"
+  },
+  {
+   "depends_on": "eval:doc.has_major_health_concern",
+   "fieldname": "major_health_concern",
+   "fieldtype": "Select",
+   "label": "Major health concern",
+   "options": "\nDiabetes\nHypertension (High Blood Pressure)\nHeart Disease\nAsthma\nChronic Kidney Disease\nLiver Disease\nEpilepsy\nThyroid Disorder\nCancer\nSevere Acute Malnutrition (SAM)\nModerate Acute Malnutrition (MAM)\nStunting\nAnaemia\nDepression\nAnxiety Disorder\nSubstance Use / Addiction\nSchizophrenia - Mental health disorder\nTuberculosis (TB)\nHIV/AIDS\nHigh-Risk Pregnancy\nReproductive Health Issues\nPost-Surgery / Recovery\nBedridden / Immobile",
+   "sort_options": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.age < 18",
+   "fieldname": "orphan",
+   "fieldtype": "Check",
+   "label": "Orphan"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.age < 18",
+   "fieldname": "single_parent",
+   "fieldtype": "Check",
+   "label": "Single Parent"
+  },
+  {
+   "depends_on": "eval: doc.age < 18",
+   "fieldname": "father_name_capture",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Select Father Name / ID",
+   "link_filters": "[[\"Household Member\", \"household_id\", \"=\", \"eval:doc.household_id\"], [\"Household Member\", \"gender\", \"=\", \"Male\"], [\"Household Member\", \"age\", \">=\", 18]]\n",
+   "options": "Family Member"
+  },
+  {
+   "depends_on": "eval: doc.age < 18",
+   "fieldname": "mother_name_capture",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Select Mother Name / ID",
+   "link_filters": "[[\"Household Member\", \"household_id\", \"=\", \"eval:doc.household_id\"], [\"Household Member\", \"gender\", \"=\", \"Female\"], [\"Household Member\", \"age\", \">=\", 18]]\n",
+   "options": "Family Member"
+  },
+  {
+   "depends_on": "eval:doc.age<18",
+   "fetch_from": "father_name_capture.name_of_the_person",
+   "fieldname": "father_name_hidden",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Father Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.age<18",
+   "fetch_from": "mother_name_capture.name_of_the_person",
+   "fieldname": "mother_name_hidden",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mother Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_cnad",
+   "fieldtype": "Column Break",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.age >= 5 && doc.age <= 18 ",
+   "fieldname": "currently_enrolled_in_school",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Currently enrolled in school",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval: doc.age <= 18 && doc.currently_enrolled_in_school == \"Yes\"",
+   "fieldname": "school_attendance_status",
+   "fieldtype": "Select",
+   "label": "School attendance status",
+   "options": "\nRegular\nIrregular\nDropped out (long-term absence)"
+  },
+  {
+   "depends_on": "eval:doc.currently_enrolled_in_school== \"Yes\"",
+   "fieldname": "school_type",
+   "fieldtype": "Select",
+   "label": "School Type",
+   "options": "\nGovt\nPrivate\nAided\nNIOS"
+  },
+  {
+   "depends_on": "eval:doc.currently_enrolled_in_school== \"Yes\"",
+   "fieldname": "medium_of_learning",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Medium of learning",
+   "options": "\nEnglish\nKannada\nTamil\nTelugu\nMalayalam\nHindi\nOthers",
+   "sort_options": 1
+  },
+  {
+   "depends_on": "eval:\r\ndoc.currently_enrolled_in_school == \"No\" || [\"Irregular\", \"Dropped out (long-term absence)\"].includes(doc.school_attendance_status)",
+   "fieldname": "if_not_in_school",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "If not in school",
+   "options": "\nFamily restrictions (care responsibilities / parental decision)\nFamily emergencies\nFinancial constraints\nEngaged in employment / livelihood activities\nNon-conducive school environment\nMedium of education not suitable\nLack of sanitation facilities\nTransport inaccessible / long commute\nMedical reasons (physical or mental health)\nSubstance use / addiction\nEarly marriage\nTeen pregnancy\nPreparing for exams (not enrolled)\nLack of interest in schooling\nFeels education level is sufficient\nYet to reach school-going age\nOther (please specify)\nCompleted Schooling\nBaby sitting\nTransfer certificate not received",
+   "sort_options": 1
+  },
+  {
+   "depends_on": "eval:\r\ndoc.if_not_in_school == \"Other (please specify)\"",
+   "fieldname": "others_if_not_in_school",
+   "fieldtype": "Data",
+   "label": "Others if not in school"
+  },
+  {
+   "fieldname": "completed_education_status",
+   "fieldtype": "Select",
+   "label": "Completed Education Status",
+   "options": "\nYet to be enrolled in Anganwadi / Pre school\nYet to be enrolled in school\nAnganwadi\nPre school\nGrade 1\nGrade 2\nGrade 3\nGrade 4\nGrade 5\nGrade 6\nGrade 7\nGrade 8\nGrade 9\nGrade 10 / SSLC\nGrade 11\nGrade 12 / HSC\nITI\nPoly Technic\nDiploma\nPG Diploma\nBachelor's degree\nMaster's degree\nPhD\nIlliterate\nOthers\nNo Formal Education"
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital status",
+   "options": "\nSingle\nMarried\nDivorced\nWidowed\nOthers"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Contact number",
+   "length": 10,
+   "options": "[5-9][0-9]{9}"
+  },
+  {
+   "fieldname": "parent_guardian_contact_number",
+   "fieldtype": "Select",
+   "label": "Parent Guardian Contact Number",
+   "length": 10
+  },
+  {
+   "fieldname": "mother_tongue",
+   "fieldtype": "Select",
+   "label": "Mother Tongue",
+   "options": "\nAssamese\nBanjari/ Lamana\nBengali\nBihari\nBodo\nDogri\nGujarati\nHindi\nKannada\nKashmiri\nKonkani\nMaithili\nMalayalam\nManipuri (Meitei)\nMarathi\nNepali\nOdia\nPunjabi\nSanskrit\nSantali\nSindhi\nTamil\nTelugu\nTulu\nUrdu"
+  },
+  {
+   "fieldname": "caste",
+   "fieldtype": "Select",
+   "label": "Caste",
+   "options": "\nGeneral\nOBC\nSC\nST"
+  },
+  {
+   "fieldname": "religion",
+   "fieldtype": "Select",
+   "label": "Religion",
+   "options": "\nHinduism\nJainism\nIslam\nChristianity\nSikhism\nBuddhism"
+  },
+  {
+   "depends_on": "eval:doc.age>=15 && doc.currently_enrolled_in_school==\"No\" || doc.age>=18",
+   "fieldname": "occupation",
+   "fieldtype": "Select",
+   "label": "Occupation",
+   "options": "\nAgarbatthi worker\nANM\nASHA Worker\nAuto driver\nBakery worker\nBeauty parlour worker\nBeedi worker\nCab driver\nChoultry worker\nConstruction worker\nDaily wage worker\nDoctor\nDomestic worker\nDriver\nDry waste sorter\nElectrician\nEngineer\nFactory worker\nGarland maker\nGarment worker\nGovernment service\nHome based worker\nHotel worker\nHousekeeping worker\nHomemaker\nIron shop owner\nLab technician\nLoading and unloading worker\nMall worker\nManhole worker\nManual scavenger\nMechanic shop owner\nMechanic shop worker\nNGO Worker\nNot working\nOnline food order delivery worker\nOnline products delivery worker\nPetrol pump worker\nPetty shop owner\nPlumber\nRestaurant worker\nReceptionist\nSales person\nSecurity guard\nShowroom worker\nSmall shop establishment worker\nStreet vendor\nStudent\nSupermarket worker\nSweeper\nUnknown\nWaste collection helper\nWaste collection vehicle driver\nWaste picker\nOther\nBBMP Loaders\nBBMP Driver\nToilet Cleaner\nUnderground Drianage Worker\nOffice Helper",
+   "sort_options": 1
+  },
+  {
+   "depends_on": "eval:\r\n(\r\n  doc.age >= 18\r\n  || (\r\n    doc.age >= 15\r\n    && doc.currently_enrolled_in_school == \"No\"\r\n  )\r\n)\r\n&& ![\"Not working\", \"Student\"].includes(doc.occupation)",
+   "fieldname": "annual_income_member",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Annual Income of the member",
+   "precision": "0"
+  },
+  {
+   "depends_on": "eval: doc.age < 18",
+   "fieldname": "mother_occupation",
+   "fieldtype": "Data",
+   "label": "Mother Occupation",
+   "sort_options": 1
+  },
+  {
+   "depends_on": "eval: doc.age < 18",
+   "fieldname": "father_occupation",
+   "fieldtype": "Data",
+   "label": "Father Occupation",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "program_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Program Status",
+   "options": "\nCLC Not Enrolled\nCLC Enrolled\nYC Not Enrolled\nYC Enrolled\nNot Eligible",
+   "read_only": 1
+  },
+  {
+   "default": "New",
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "source",
+   "options": "\nNew\nLegacy"
+  },
+  {
+   "fieldname": "legacy_member_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Legacy member code",
+   "unique": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "validation_status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Validation status",
+   "options": "\nDraft\nVerified",
+   "read_only": 1
+  },
+  {
+   "depends_on": "doc.validation_status === \"Draft\"",
+   "fieldname": "verify_family_member",
+   "fieldtype": "Button",
+   "label": "Verify Family Member"
+  },
+  {
+   "fieldname": "title_summary",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Title Summary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "household_summary_html",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Household Summary"
+  },
+  {
+   "fieldname": "tab_activity_summary",
+   "fieldtype": "Section Break",
+   "label": "Activity Summary"
+  },
+  {
+   "fieldname": "participation_summary_html",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "CLC Participation Summary"
+  },
+  {
+   "fieldname": "yc_summary_html",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "YC Participation Summary"
+  },
+  {
+   "fieldname": "event_summary_html",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Program Event Participation Summary"
+  },
+  {
+   "fieldname": "health_summary_html",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Health & BMI Summary"
+  },
+  {
+   "fieldname": "welfare_summary_html",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Welfare & Entitlements Summary"
+  },
+  {
+   "fieldname": "education_summary_html",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Education Summary"
+  },
+  {
+   "fieldname": "health_referral_summary",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Health Referral Summary"
+  },
+  {
+   "fieldname": "youth_career_activity_summary",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Youth Career Activity Summary"
+  },
+  {
+   "fieldname": "dropout_summary_html",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Dropout Followups"
+  },
+  {
+   "fieldname": "scs_summary_html",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Significant Change Story"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "CLC Enrollment",
+   "link_fieldname": "fmid"
+  },
+  {
+   "link_doctype": "YC Enrollment",
+   "link_fieldname": "fmid"
+  },
+  {
+   "link_doctype": "Accessing Welfare and Entitlements",
+   "link_fieldname": "fmid"
+  },
+  {
+   "link_doctype": "Education Status Academic Year",
+   "link_fieldname": "family_member"
+  },
+  {
+   "link_doctype": "BMI Screening",
+   "link_fieldname": "fmid"
+  },
+  {
+   "link_doctype": "Dropout Followup",
+   "link_fieldname": "select_the_child_or_id_for_followup"
+  },
+  {
+   "link_doctype": "Health Referral Case",
+   "link_fieldname": "person__beneficiary"
+  },
+  {
+   "link_doctype": "Youth Career Profile",
+   "link_fieldname": "fmid"
+  }
+ ],
+ "modified": "2026-06-18 17:46:00.100791",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Family Member",
+ "naming_rule": "Expression (old style)",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "search_fields": "name_of_the_person, gender, age",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title_summary"
+}

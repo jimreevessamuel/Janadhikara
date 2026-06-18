@@ -1,0 +1,255 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-05-18 15:33:13.526064",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_so6s",
+  "amended_from",
+  "naming_series",
+  "organization",
+  "initiative",
+  "centre_type",
+  "centre_name",
+  "issue_date",
+  "expected_return_date",
+  "actual_return_date",
+  "book_status",
+  "borrower_details_section",
+  "borrower_type",
+  "borrower",
+  "fmid",
+  "name_of_the_borrower",
+  "age",
+  "gender",
+  "books_issed_section",
+  "library_inventory",
+  "book_name",
+  "book_type",
+  "author_name",
+  "book_language",
+  "availability_status",
+  "book_condition_on_issue",
+  "book_condition_on_return",
+  "issued_by_section",
+  "issued_by",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_so6s",
+   "fieldtype": "Section Break",
+   "label": "Issuance Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Book Issuance",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "BKI-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "BKI-.####"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "label": "Organization",
+   "options": "Organization",
+   "read_only": 1
+  },
+  {
+   "fieldname": "initiative",
+   "fieldtype": "Link",
+   "label": "Initiative",
+   "options": "Initiative",
+   "read_only": 1
+  },
+  {
+   "fieldname": "centre_type",
+   "fieldtype": "Select",
+   "label": "Centre Type",
+   "options": "\nCLC Profile\nYouth Centre Profile",
+   "read_only": 1
+  },
+  {
+   "fieldname": "centre_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Centre Name",
+   "options": "centre_type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "issue_date",
+   "fieldtype": "Date",
+   "label": "Issue Date"
+  },
+  {
+   "fieldname": "expected_return_date",
+   "fieldtype": "Date",
+   "label": "Expected Return Date"
+  },
+  {
+   "fieldname": "actual_return_date",
+   "fieldtype": "Date",
+   "label": "Actual Return Date"
+  },
+  {
+   "fieldname": "book_status",
+   "fieldtype": "Select",
+   "label": "Book status",
+   "options": "\nIssued\nReturned\nOverdue"
+  },
+  {
+   "fieldname": "borrower_details_section",
+   "fieldtype": "Section Break",
+   "label": "Borrower Details"
+  },
+  {
+   "fieldname": "borrower_type",
+   "fieldtype": "Select",
+   "label": "Borrower Type",
+   "options": "\nCLC Enrollment\nYC Enrollment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "borrower",
+   "fieldtype": "Dynamic Link",
+   "label": "Borrower",
+   "options": "borrower_type"
+  },
+  {
+   "fieldname": "fmid",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "FMID",
+   "options": "Family Member",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "name_of_the_borrower",
+   "fieldtype": "Data",
+   "label": "Name of the borrower"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Data",
+   "label": "Gender"
+  },
+  {
+   "fieldname": "books_issed_section",
+   "fieldtype": "Section Break",
+   "label": "Books Issued"
+  },
+  {
+   "fieldname": "library_inventory",
+   "fieldtype": "Link",
+   "label": "Library Inventory",
+   "options": "Library inventory",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "library_inventory.name_of_the_book",
+   "fieldname": "book_name",
+   "fieldtype": "Data",
+   "label": "Book Name"
+  },
+  {
+   "fetch_from": "library_inventory.book_type",
+   "fieldname": "book_type",
+   "fieldtype": "Data",
+   "label": "Book Type"
+  },
+  {
+   "fetch_from": "library_inventory.author_name",
+   "fieldname": "author_name",
+   "fieldtype": "Data",
+   "label": "Author Name"
+  },
+  {
+   "fetch_from": "library_inventory.book_language",
+   "fieldname": "book_language",
+   "fieldtype": "Data",
+   "label": "Book Language"
+  },
+  {
+   "default": "Available",
+   "fieldname": "availability_status",
+   "fieldtype": "Select",
+   "label": "Availability Status",
+   "options": "\nAvailable\nIssued"
+  },
+  {
+   "fieldname": "book_condition_on_issue",
+   "fieldtype": "Select",
+   "label": "Book Condition on Issue",
+   "options": "\nGood\nFair\nPoor"
+  },
+  {
+   "fieldname": "book_condition_on_return",
+   "fieldtype": "Select",
+   "label": "Book Condition on Return",
+   "options": "\nGood\nFair\nPoor\nDamaged"
+  },
+  {
+   "fieldname": "issued_by_section",
+   "fieldtype": "Section Break",
+   "label": "Issued By"
+  },
+  {
+   "fieldname": "issued_by",
+   "fieldtype": "Link",
+   "label": "Issued By",
+   "options": "Partner Team Member"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:42:51.457985",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Book Issuance",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

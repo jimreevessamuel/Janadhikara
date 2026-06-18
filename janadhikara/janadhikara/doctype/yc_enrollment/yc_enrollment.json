@@ -1,0 +1,309 @@
+{
+ "_liked_by": "[]",
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "autoname": "naming_series:YCEN-.YYYY.-.####",
+ "creation": "2026-03-13 12:17:26.482896",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "organization",
+  "cluster",
+  "zone",
+  "ward__panchayat_name",
+  "slum__settlement_name",
+  "youth_career_profile",
+  "youth_center_id",
+  "youth_center_name",
+  "fmid",
+  "hhid",
+  "name1",
+  "gender",
+  "date_of_birth",
+  "age",
+  "disability_status",
+  "address",
+  "contact_number",
+  "column_break_wudo",
+  "education_status",
+  "if_in_school",
+  "school_type",
+  "if_not_in_school",
+  "mother_tongue",
+  "caste",
+  "religion",
+  "name_of_the_father",
+  "fathers_occupation",
+  "name_of_the_mother",
+  "mothers_occupation",
+  "household_head_name"
+ ],
+ "fields": [
+  {
+   "default": "YCEN-.YYYY.-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "YCEN-.YYYY.-.####"
+  },
+  {
+   "fetch_from": "fmid.organization",
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "fmid.cluster",
+   "fieldname": "cluster",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Cluster",
+   "options": "Cluster Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "cluster.zone",
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Zone",
+   "options": "Zone Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "hhid.ward",
+   "fieldname": "ward__panchayat_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Ward / Panchayat Name",
+   "options": "Ward Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "hhid.settlement_name",
+   "fieldname": "slum__settlement_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Slum / Settlement Name",
+   "options": "Slum - Settlement Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "youth_career_profile",
+   "fieldtype": "Link",
+   "label": "Youth Career Profile",
+   "options": "Youth Career Profile"
+  },
+  {
+   "fieldname": "youth_center_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Youth Center ID",
+   "options": "Youth Centre Profile"
+  },
+  {
+   "fetch_from": "youth_center_id.youth_center_name",
+   "fieldname": "youth_center_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Youth Center Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fmid",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "FMID",
+   "link_filters": "[[\"Family Member\",\"child_youth\",\"=\",\"Youth\"]]",
+   "options": "Family Member",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "fmid.household_id",
+   "fieldname": "hhid",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "HHID",
+   "options": "Household Profile"
+  },
+  {
+   "fetch_from": "fmid.name_of_the_person",
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name"
+  },
+  {
+   "fetch_from": "fmid.gender",
+   "fieldname": "gender",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gender"
+  },
+  {
+   "fetch_from": "fmid.date_of_birth",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Data",
+   "label": "Date of Birth"
+  },
+  {
+   "fetch_from": "fmid.age",
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "age"
+  },
+  {
+   "fetch_from": "fmid.disability_status",
+   "fieldname": "disability_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Disability status"
+  },
+  {
+   "fetch_from": "hhid.house_number_address",
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "House number / Address"
+  },
+  {
+   "fetch_from": "fmid.contact_number",
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "column_break_wudo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "fmid.completed_education_status",
+   "fieldname": "education_status",
+   "fieldtype": "Data",
+   "label": "Completed Education Status"
+  },
+  {
+   "depends_on": "eval:doc.age<=18",
+   "fetch_from": "fmid.currently_enrolled_in_school",
+   "fieldname": "if_in_school",
+   "fieldtype": "Data",
+   "label": "Currently enrolled in school"
+  },
+  {
+   "depends_on": "eval:doc.age<=18",
+   "fetch_from": "fmid.school_type",
+   "fieldname": "school_type",
+   "fieldtype": "Data",
+   "label": "School Type"
+  },
+  {
+   "depends_on": "eval:doc.age <= 18 && doc.if_in_school == \"No\"",
+   "fetch_from": "fmid.if_not_in_school",
+   "fieldname": "if_not_in_school",
+   "fieldtype": "Data",
+   "label": "If not in school"
+  },
+  {
+   "fetch_from": "fmid.mother_tongue",
+   "fieldname": "mother_tongue",
+   "fieldtype": "Data",
+   "label": "Mother Tongue"
+  },
+  {
+   "fetch_from": "fmid.caste",
+   "fieldname": "caste",
+   "fieldtype": "Data",
+   "label": "Caste"
+  },
+  {
+   "fetch_from": "fmid.religion",
+   "fieldname": "religion",
+   "fieldtype": "Data",
+   "label": "Religion"
+  },
+  {
+   "depends_on": "eval:doc.age<=18",
+   "fetch_from": "fmid.father_name_hidden",
+   "fieldname": "name_of_the_father",
+   "fieldtype": "Data",
+   "label": "Name of the Father"
+  },
+  {
+   "depends_on": "eval:doc.age<=18",
+   "fetch_from": "fmid.father_occupation",
+   "fieldname": "fathers_occupation",
+   "fieldtype": "Data",
+   "label": "Father's Occupation"
+  },
+  {
+   "depends_on": "eval:doc.age<=18",
+   "fetch_from": "fmid.mother_name_hidden",
+   "fieldname": "name_of_the_mother",
+   "fieldtype": "Data",
+   "label": "Name of the Mother"
+  },
+  {
+   "depends_on": "eval:doc.age<=18",
+   "fetch_from": "fmid.mother_occupation",
+   "fieldname": "mothers_occupation",
+   "fieldtype": "Data",
+   "label": "Mother's Occupation"
+  },
+  {
+   "fetch_from": "hhid.hh_head",
+   "fieldname": "household_head_name",
+   "fieldtype": "Data",
+   "label": "Household head Name"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:43:00.070060",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "YC Enrollment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "name1, gender, slum__settlement_name",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name1"
+}

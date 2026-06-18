@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "format:YC-{###}",
+ "creation": "2026-03-13 11:07:42.661825",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ylc_profile_section",
+  "organization",
+  "cluster",
+  "zone",
+  "initiative",
+  "youth_center_name",
+  "yc_location",
+  "landmark",
+  "working_hours",
+  "address",
+  "name_yc_incharge",
+  "contact_num_yc_incharge",
+  "geo_locattion"
+ ],
+ "fields": [
+  {
+   "fieldname": "ylc_profile_section",
+   "fieldtype": "Section Break",
+   "label": "Youth Centre Profile"
+  },
+  {
+   "fetch_from": "name_yc_incharge.name_of_the_organization",
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "cluster",
+   "fieldtype": "Link",
+   "label": "Cluster",
+   "options": "Cluster Name",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "cluster.zone",
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "label": "Zone",
+   "options": "Zone Name",
+   "read_only": 1
+  },
+  {
+   "default": "YC",
+   "fieldname": "initiative",
+   "fieldtype": "Link",
+   "label": "Initiative",
+   "options": "Initiative",
+   "read_only": 1
+  },
+  {
+   "fieldname": "youth_center_name",
+   "fieldtype": "Data",
+   "label": "Youth Center Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "yc_location",
+   "fieldtype": "Data",
+   "label": "YC Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "landmark",
+   "fieldtype": "Data",
+   "label": "Landmark "
+  },
+  {
+   "fieldname": "working_hours",
+   "fieldtype": "Data",
+   "label": "Working Hours"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "name_yc_incharge",
+   "fieldtype": "Link",
+   "label": "Name of the YC incharge",
+   "options": "Partner Team Member",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "name_yc_incharge.contact_number_of_the_team_member",
+   "fieldname": "contact_num_yc_incharge",
+   "fieldtype": "Data",
+   "label": "Contact number of the YC incharge",
+   "length": 10,
+   "options": "Partner Team Member",
+   "reqd": 1
+  },
+  {
+   "fieldname": "geo_locattion",
+   "fieldtype": "Geolocation",
+   "label": "Geo Locattion"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Library inventory",
+   "link_fieldname": "centre_name"
+  },
+  {
+   "link_doctype": "Book Issuance",
+   "link_fieldname": "centre_name"
+  }
+ ],
+ "modified": "2026-06-18 17:46:05.874201",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Youth Centre Profile",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "youth_center_name",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "youth_center_name"
+}

@@ -1,0 +1,138 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:SFSP-.###",
+ "creation": "2026-06-04 10:31:11.746738",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_info_section",
+  "naming_series",
+  "service_provider_id",
+  "service_provider_name",
+  "type",
+  "location",
+  "program_details_section",
+  "course__program_name",
+  "skill_type",
+  "duration_months",
+  "outcome_support_section",
+  "certification_available",
+  "placement_support"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_info_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Info"
+  },
+  {
+   "default": "SFSP-.###",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming series",
+   "options": "SFSP-.###"
+  },
+  {
+   "fieldname": "service_provider_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Select Service Provider",
+   "options": "Service Provider",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "service_provider_id.name_of_the_service_provider",
+   "fieldname": "service_provider_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Service Provider Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "service_provider_id.type",
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "service_provider_id.location",
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location",
+   "read_only": 1
+  },
+  {
+   "fieldname": "program_details_section",
+   "fieldtype": "Section Break",
+   "label": "Program Details"
+  },
+  {
+   "fieldname": "course__program_name",
+   "fieldtype": "Data",
+   "label": "Course / Program Name"
+  },
+  {
+   "fieldname": "skill_type",
+   "fieldtype": "Select",
+   "label": "Skill Type",
+   "options": "\nEntrepreneurial Skills\nBusiness Development Skills\nSmall / Cottage Business Skills\nLivelihood Skills\nArtisan / Craft Skills\nVocational Skills\nIT Job-Oriented Skills\nCorporate / Employability Skills"
+  },
+  {
+   "fieldname": "duration_months",
+   "fieldtype": "Int",
+   "label": "Duration (Months)"
+  },
+  {
+   "fieldname": "outcome_support_section",
+   "fieldtype": "Section Break",
+   "label": "Outcome Support"
+  },
+  {
+   "default": "0",
+   "fieldname": "certification_available",
+   "fieldtype": "Check",
+   "label": "Certification Available"
+  },
+  {
+   "default": "0",
+   "fieldname": "placement_support",
+   "fieldtype": "Check",
+   "label": "Placement Support"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:42:10.230721",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Courses From Service Provider",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "course__program_name, service_provider_name, type",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "course__program_name"
+}

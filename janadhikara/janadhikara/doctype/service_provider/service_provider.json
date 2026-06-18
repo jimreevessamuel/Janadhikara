@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:SP-.###",
+ "creation": "2026-06-04 13:03:41.428007",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "name_of_the_service_provider",
+  "type",
+  "location",
+  "address",
+  "point_of_contact",
+  "contact_number",
+  "website"
+ ],
+ "fields": [
+  {
+   "default": "SP-.###",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "SP-.###"
+  },
+  {
+   "fieldname": "name_of_the_service_provider",
+   "fieldtype": "Data",
+   "label": "Name of the service Provider"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type of service provider",
+   "options": "\nCollege\nTraining Institute\nCompany\nNGO\nGovernment\nHospital",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "point_of_contact",
+   "fieldtype": "Data",
+   "label": "Point of Contact"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Contact Number"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:46:28.423476",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Service Provider",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "name_of_the_service_provider, type, location",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name_of_the_service_provider"
+}

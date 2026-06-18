@@ -1,0 +1,163 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:SCS-.YYYY.-.####",
+ "creation": "2026-05-22 11:46:04.776900",
+ "default_view": "Report",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "organization",
+  "cluster",
+  "zone",
+  "story_title",
+  "date",
+  "reported_by",
+  "story_content_section",
+  "before",
+  "action_taken",
+  "change_observed",
+  "section_break_ajpp",
+  "category_of_scs",
+  "reference_category",
+  "reference_name",
+  "status",
+  "photo__doc_proof",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": "SCS-.YYYY.-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "SCS-.YYYY.-.####"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "label": "Organization",
+   "options": "Organization"
+  },
+  {
+   "fieldname": "cluster",
+   "fieldtype": "Link",
+   "label": "Cluster",
+   "options": "Cluster Name"
+  },
+  {
+   "fetch_from": "cluster.zone",
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "label": "Zone",
+   "options": "Zone Name"
+  },
+  {
+   "fieldname": "story_title",
+   "fieldtype": "Data",
+   "label": "Story Title"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "reported_by",
+   "fieldtype": "Link",
+   "label": "Reported by",
+   "options": "User"
+  },
+  {
+   "fieldname": "story_content_section",
+   "fieldtype": "Section Break",
+   "label": "Story Content"
+  },
+  {
+   "fieldname": "before",
+   "fieldtype": "Text Editor",
+   "label": "Situation before change"
+  },
+  {
+   "fieldname": "action_taken",
+   "fieldtype": "Text Editor",
+   "label": "What was done"
+  },
+  {
+   "fieldname": "change_observed",
+   "fieldtype": "Text Editor",
+   "label": "Result / impact"
+  },
+  {
+   "fieldname": "section_break_ajpp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "category_of_scs",
+   "fieldtype": "Select",
+   "label": "Category of SCS",
+   "options": "\nIndividual\nCLC Group\nYC Group\nOrganization\nStaff",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "reference_category",
+   "fieldtype": "Select",
+   "label": "Reference Category",
+   "options": "\nFamily Member\nPartner Team Member\nOrganization\nCLC Profile\nYouth Centre Profile"
+  },
+  {
+   "depends_on": "eval:doc.reference_category",
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Name",
+   "options": "reference_category"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nDraft\nSubmitted\nApproved"
+  },
+  {
+   "fieldname": "photo__doc_proof",
+   "fieldtype": "Attach",
+   "label": "Photo / doc proof"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:44:34.896535",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Significant Change Story",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

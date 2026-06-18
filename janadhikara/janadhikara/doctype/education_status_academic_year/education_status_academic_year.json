@@ -1,0 +1,325 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:ESA-.######",
+ "creation": "2026-04-28 07:54:56.464968",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "family_member",
+  "name_of_the_child__youth",
+  "age",
+  "gender",
+  "academic_year",
+  "current_education_status",
+  "current_grade_enrolled",
+  "transition_type",
+  "school_name",
+  "school_type",
+  "class_grade_highest_completed",
+  "medium_of_learning",
+  "enrollment_type",
+  "school_attendance_status",
+  "attendance_risk_flag",
+  "reason_for_dropout",
+  "other_reason_for_dropout",
+  "at_risk_scenario",
+  "previous_year_education_status",
+  "if_not_in_school",
+  "other_reason_for_not_in_school",
+  "slum_settlement_name",
+  "ward_panchayat_name",
+  "organization",
+  "cluster",
+  "zone",
+  "household_id"
+ ],
+ "fields": [
+  {
+   "default": "ESA-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming series",
+   "options": "ESA-.#####"
+  },
+  {
+   "fieldname": "family_member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Select child to capture academics",
+   "options": "Family Member",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "family_member.name_of_the_person",
+   "fieldname": "name_of_the_child__youth",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of the child / youth"
+  },
+  {
+   "fetch_from": "family_member.age",
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Age",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "family_member.gender",
+   "fieldname": "gender",
+   "fieldtype": "Data",
+   "label": "Gender"
+  },
+  {
+   "fieldname": "academic_year",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Academic year",
+   "options": "2025-26\n2026-27",
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_education_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Current Education Status",
+   "options": "\nEnrolled\nDropped Out\nNever Enrolled\nCompleted School\nTransitioned",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.current_education_status == \"Enrolled\"",
+   "fieldname": "current_grade_enrolled",
+   "fieldtype": "Select",
+   "label": "Current Grade Enrolled",
+   "options": "\nGrade 1\nGrade 2\nGrade 3\nGrade 4\nGrade 5\nGrade 6\nGrade 7\nGrade 8\nGrade 9\nGrade 10 / SSLC\nGrade 11\nGrade 12 / HSC"
+  },
+  {
+   "depends_on": "eval:doc.current_education_status==\"Transitioned\"",
+   "fieldname": "transition_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transition Type",
+   "mandatory_depends_on": "eval:doc.current_education_status==\"Transitioned\"",
+   "options": "\nSkill Training\nAlternative Education\nOpen Schooling\nApprenticeship\nOther"
+  },
+  {
+   "depends_on": "eval:doc.current_education_status == \"Enrolled\"",
+   "fieldname": "school_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "School Name",
+   "mandatory_depends_on": "eval:doc.current_education_status == \"Enrolled\""
+  },
+  {
+   "depends_on": "eval:doc.current_education_status == \"Enrolled\"",
+   "fieldname": "school_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "School Type",
+   "mandatory_depends_on": "eval:doc.current_education_status == \"Enrolled\"",
+   "options": "\nGovt\nPrivate\nAided"
+  },
+  {
+   "depends_on": "eval:doc.current_education_status == \"Enrolled\"",
+   "fieldname": "class_grade_highest_completed",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Class / Grade (highest completed)",
+   "mandatory_depends_on": "eval:doc.current_education_status == \"Enrolled\"",
+   "options": "\nNone\nGrade 1\nGrade 2\nGrade 3\nGrade 4\nGrade 5\nGrade 6\nGrade 7\nGrade 8\nGrade 9\nGrade 10 / SSLC\nGrade 11\nGrade 12 / HSC"
+  },
+  {
+   "depends_on": "eval:doc.current_education_status == \"Enrolled\"",
+   "fieldname": "medium_of_learning",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Medium of Learning",
+   "mandatory_depends_on": "eval:doc.current_education_status == \"Enrolled\"",
+   "options": "\nKannada\nEnglish\nUrdu\nTamil\nOther"
+  },
+  {
+   "depends_on": "eval:[\"Enrolled\",\"Completed School\",\"Transitioned\"].includes(doc.current_education_status)",
+   "fieldname": "enrollment_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Enrollment Type",
+   "mandatory_depends_on": "eval:[\"Enrolled\",\"Completed School\",\"Transitioned\"].includes(doc.current_education_status)",
+   "options": "\nFresh Admission\nRe-enrolment\nContinuing from previous year\nChanged school"
+  },
+  {
+   "depends_on": "eval:doc.current_education_status == \"Enrolled\"",
+   "fieldname": "school_attendance_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "School Attendance Status",
+   "mandatory_depends_on": "eval:doc.current_education_status == \"Enrolled\"",
+   "options": "\nRegular\nIrregular\nNot Attending"
+  },
+  {
+   "default": "0",
+   "fieldname": "attendance_risk_flag",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Attendance Risk Flag",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.current_education_status == \"Dropped Out\"",
+   "fieldname": "reason_for_dropout",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Reason for Dropout",
+   "mandatory_depends_on": "eval:doc.current_education_status == \"Dropped Out\"",
+   "options": "\nFamily restrictions (care responsibilities / parental decision)\nFamily emergencies\nFinancial constraints\nEngaged in employment / livelihood activities\nNon-conducive school environment\nMedium of education not suitable\nLack of sanitation facilities\nTransport inaccessible / long commute\nMedical reasons (physical or mental health)\nSubstance use / addiction\nEarly marriage\nTeen pregnancy\nLack of interest in schooling\nFeels education level is sufficient\nOther (please specify)"
+  },
+  {
+   "depends_on": "eval:doc.reason_for_dropout==\"Other (please specify)\"",
+   "fieldname": "other_reason_for_dropout",
+   "fieldtype": "Data",
+   "label": "Other reason for dropout"
+  },
+  {
+   "default": "0",
+   "fieldname": "at_risk_scenario",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "At risk scenario"
+  },
+  {
+   "fieldname": "previous_year_education_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Previous Year Education Status",
+   "options": "\nEnrolled\nDropped Out\nNever Enrolled\nCompleted School\nTransitioned\nNot Available",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.current_education_status == \"Never Enrolled\"",
+   "fieldname": "if_not_in_school",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "If not in school",
+   "mandatory_depends_on": "eval:doc.current_education_status == \"Never Enrolled\"",
+   "options": "\nFamily restrictions (care responsibilities / parental decision)\nFamily emergencies\nFinancial constraints\nPreparing for exams (not enrolled)\nYet to reach school-going age\nOther (please specify)"
+  },
+  {
+   "depends_on": "eval:doc.if_not_in_school==\"Other (please specify)\"",
+   "fieldname": "other_reason_for_not_in_school",
+   "fieldtype": "Data",
+   "label": "Other reason for not in school"
+  },
+  {
+   "fetch_from": "family_member.slum_settlement_name",
+   "fieldname": "slum_settlement_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Slum / Settlement Name",
+   "options": "Slum - Settlement Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "family_member.ward_panchayat_name",
+   "fieldname": "ward_panchayat_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Ward / Panchayat Name",
+   "options": "Ward Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "family_member.organization",
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "family_member.cluster",
+   "fieldname": "cluster",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Cluster",
+   "options": "Cluster Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "cluster.zone",
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Zone",
+   "options": "Zone Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "family_member.household_id",
+   "fieldname": "household_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Household ID",
+   "options": "Household Profile",
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:41:58.676544",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Education Status Academic Year",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "name_of_the_child__youth, age, gender",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

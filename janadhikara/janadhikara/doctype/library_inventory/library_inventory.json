@@ -1,0 +1,214 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:LIB-.####",
+ "creation": "2026-05-18 15:03:33.443959",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "organization",
+  "zone",
+  "cluster",
+  "initiative",
+  "centre_details_section",
+  "centre_type",
+  "centre_name",
+  "column_break_mnwd",
+  "section_break_detail",
+  "name_of_the_book",
+  "book_type",
+  "author_name",
+  "book_id_number",
+  "book_language",
+  "book_rate",
+  "name_of_the_publisher",
+  "title_summary",
+  "availability_status"
+ ],
+ "fields": [
+  {
+   "default": "LIB-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "LIB-.####"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "read_only": 1
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Zone Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cluster",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cluster",
+   "options": "Cluster Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "initiative",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Initiative",
+   "options": "Initiative",
+   "read_only": 1
+  },
+  {
+   "fieldname": "centre_details_section",
+   "fieldtype": "Section Break",
+   "label": "Centre Details"
+  },
+  {
+   "fieldname": "centre_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Centre Type",
+   "options": "\nCLC Profile\nYouth Centre Profile",
+   "read_only": 1
+  },
+  {
+   "fieldname": "centre_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Centre Name",
+   "options": "centre_type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mnwd",
+   "fieldtype": "Column Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "section_break_detail",
+   "fieldtype": "Section Break",
+   "label": "Book Details"
+  },
+  {
+   "fieldname": "name_of_the_book",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of the book",
+   "reqd": 1
+  },
+  {
+   "fieldname": "book_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Book type",
+   "options": "\nPicture Book\nStory Book\nLiterature Book\nMagazine\nPoem Book\nScience\nGeneral Knowledge\nHistory",
+   "reqd": 1,
+   "sort_options": 1
+  },
+  {
+   "fieldname": "author_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Author Name / Writer Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "book_id_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Book ID number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "book_language",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Book Language",
+   "options": "\nEnglish\nKannada\nTamil\nTelugu\nHindi\nBengali\nAssamese\nothers\nKannada and English - Bilingual",
+   "reqd": 1,
+   "sort_options": 1
+  },
+  {
+   "fieldname": "book_rate",
+   "fieldtype": "Currency",
+   "label": "Book rate",
+   "non_negative": 1,
+   "precision": "0",
+   "reqd": 1
+  },
+  {
+   "fieldname": "name_of_the_publisher",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of the publisher",
+   "reqd": 1
+  },
+  {
+   "fieldname": "title_summary",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Title Summary",
+   "read_only": 1
+  },
+  {
+   "default": "Available",
+   "fieldname": "availability_status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Availability Status",
+   "options": "\nAvailable\nIssued"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Book Issuance",
+   "link_fieldname": "library_inventory"
+  }
+ ],
+ "modified": "2026-06-18 17:42:32.042399",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Library inventory",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title_summary"
+}

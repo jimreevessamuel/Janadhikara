@@ -1,0 +1,232 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:BHF-.####",
+ "creation": "2026-05-14 12:17:12.837965",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "column_break_eels",
+  "naming_series",
+  "hh_id",
+  "house_section",
+  "house_ownership",
+  "rent_amount",
+  "type_of_roof",
+  "type_of_wall",
+  "type_of_floor",
+  "size_of_house_in_square_feets",
+  "no_of_rooms_excluding_bathroom_toilet_and_kitchen",
+  "ration_card__food_security_category_section",
+  "ration_card__food_security_category",
+  "electricity_section",
+  "electricity_facility",
+  "if_no_electricity_alternative_facility",
+  "water_section",
+  "type_of_water_supply",
+  "drinking_water",
+  "drinking_water_source",
+  "sanitation_section",
+  "access_to_toilet_facility",
+  "type_of_toilet_faclity",
+  "cooking_fuel_section",
+  "cooking_fuel_usage",
+  "if_other_fuel",
+  "waste_disposal_section",
+  "waste_disposal_method"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_eels",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "BHF-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Naming series",
+   "options": "BHF-.####"
+  },
+  {
+   "fieldname": "hh_id",
+   "fieldtype": "Link",
+   "label": "Household Id",
+   "options": "Household Profile"
+  },
+  {
+   "fieldname": "house_section",
+   "fieldtype": "Section Break",
+   "label": "House"
+  },
+  {
+   "fieldname": "house_ownership",
+   "fieldtype": "Select",
+   "label": "House ownership",
+   "options": "\nOwned\nRented\nLease\nSelf occupied"
+  },
+  {
+   "depends_on": "eval:doc.house_ownership==\"Rented\"",
+   "fieldname": "rent_amount",
+   "fieldtype": "Currency",
+   "label": "Rent amount",
+   "precision": "0"
+  },
+  {
+   "fieldname": "type_of_roof",
+   "fieldtype": "Select",
+   "label": "Type of roof",
+   "options": "\nConcrete / RCC\nTiles\nTin / Metal Sheets\nAsbestos Sheets\nThatch / Grass\nPlastic / Polythene\nWood / Bamboo\nMixed"
+  },
+  {
+   "fieldname": "type_of_wall",
+   "fieldtype": "Select",
+   "label": "Type of wall",
+   "options": "\nPucca (Concrete / Brick Cement)\nSemi-Pucca\nKutcha (Mud / Unburnt Brick)\nWood / Bamboo\nStone (without cement)\nGI / Metal Sheets\nPlastic / Temporary Material\nMixed"
+  },
+  {
+   "fieldname": "type_of_floor",
+   "fieldtype": "Select",
+   "label": "Type of floor",
+   "options": "\nTiles / Marble / Granite\nCement\nMud / Earthen\nWood\nStone\nVinyl / Carpet"
+  },
+  {
+   "fieldname": "size_of_house_in_square_feets",
+   "fieldtype": "Int",
+   "label": "Size of house in square feets"
+  },
+  {
+   "fieldname": "no_of_rooms_excluding_bathroom_toilet_and_kitchen",
+   "fieldtype": "Int",
+   "label": "No of rooms excluding bathroom toilet and kitchen"
+  },
+  {
+   "fieldname": "ration_card__food_security_category_section",
+   "fieldtype": "Section Break",
+   "label": "Ration Card / Food Security Category"
+  },
+  {
+   "fieldname": "ration_card__food_security_category",
+   "fieldtype": "Select",
+   "label": "Ration Card / Food Security Category",
+   "options": "\nAAY \u2013 Antyodaya Anna Yojana\nPHH \u2013 Priority Household / BPL \u2013 Below Poverty Line\nAPL \u2013 Above Poverty Line / NPHH \u2013 Non-Priority Household\nNo ration card",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "electricity_section",
+   "fieldtype": "Section Break",
+   "label": "Electricity"
+  },
+  {
+   "fieldname": "electricity_facility",
+   "fieldtype": "Select",
+   "label": "Electricity facility",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.electricity_facility==\"No\"",
+   "fieldname": "if_no_electricity_alternative_facility",
+   "fieldtype": "Select",
+   "label": "If no electricity alternative facility",
+   "options": "\nSolar\nFuel lamps"
+  },
+  {
+   "fieldname": "water_section",
+   "fieldtype": "Section Break",
+   "label": "Water"
+  },
+  {
+   "fieldname": "type_of_water_supply",
+   "fieldtype": "Select",
+   "label": "Type of water supply",
+   "options": "\nIndividual\nPublic\nShared\nPrivate tanker"
+  },
+  {
+   "fieldname": "drinking_water",
+   "fieldtype": "Select",
+   "label": "Drinking water",
+   "options": "\nIndividual\nPublic\nShared\nPurchased"
+  },
+  {
+   "fieldname": "drinking_water_source",
+   "fieldtype": "Select",
+   "label": "Drinking water source",
+   "options": "\nTap\nBorewell\nWell\nTanker\nJerry Can\nOther"
+  },
+  {
+   "fieldname": "sanitation_section",
+   "fieldtype": "Section Break",
+   "label": "Sanitation"
+  },
+  {
+   "fieldname": "access_to_toilet_facility",
+   "fieldtype": "Select",
+   "label": "Access to toilet facility",
+   "options": "\nPrivate\nShared\nPublic\nNo toilet\nOpen defecation"
+  },
+  {
+   "depends_on": "eval: doc.access_to_toilet_facility == \"Private\" ||doc.access_to_toilet_facility == \"Shared\" || doc.access_to_toilet_facility == \"Public\" ",
+   "fieldname": "type_of_toilet_faclity",
+   "fieldtype": "Select",
+   "label": "Type of toilet faclity",
+   "options": "\nSewerage\nSoak pit"
+  },
+  {
+   "fieldname": "cooking_fuel_section",
+   "fieldtype": "Section Break",
+   "label": "Cooking fuel"
+  },
+  {
+   "fieldname": "cooking_fuel_usage",
+   "fieldtype": "Select",
+   "label": "Cooking fuel usage",
+   "options": "\nLPG\nCNG\nFirewood\nElectricity\nBiogas\nOther"
+  },
+  {
+   "depends_on": "eval:doc.cooking_fuel_usage==\"Other\"",
+   "fieldname": "if_other_fuel",
+   "fieldtype": "Data",
+   "label": "If other fuel"
+  },
+  {
+   "fieldname": "waste_disposal_section",
+   "fieldtype": "Section Break",
+   "label": "Waste disposal"
+  },
+  {
+   "fieldname": "waste_disposal_method",
+   "fieldtype": "Select",
+   "label": "Waste disposal method",
+   "options": "\nMunicipality Collection\nBurning\nDumping\nComposting"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:39:55.857815",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Basic household facilities",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

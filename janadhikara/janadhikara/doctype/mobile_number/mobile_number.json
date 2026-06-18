@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-04-13 22:20:21.495771",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "mobile_number",
+  "fmid",
+  "houdehold_id",
+  "is_primary",
+  "select_trdl",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile Number",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "fmid",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Family Member ID",
+   "options": "Family Member",
+   "reqd": 1
+  },
+  {
+   "fieldname": "houdehold_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Houdehold ID",
+   "options": "Household Profile",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_primary",
+   "fieldtype": "Check",
+   "label": "Primary Contact"
+  },
+  {
+   "fieldname": "select_trdl",
+   "fieldtype": "Select",
+   "options": "Active\nInactive"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:36:36.380474",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Mobile Number",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

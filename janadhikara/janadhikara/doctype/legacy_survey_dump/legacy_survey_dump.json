@@ -1,0 +1,211 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-05-02 13:14:13.810766",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "record_type",
+  "external_household_code",
+  "external_member_code",
+  "legacy_source_name",
+  "legacy_import_batch",
+  "legacy_survey_date",
+  "is_legacy_record",
+  "household_head_name",
+  "person_name",
+  "phone_number",
+  "organization",
+  "zone_name",
+  "ward_name",
+  "settlement_name",
+  "age",
+  "gender",
+  "is_promoted_to_core",
+  "promoted_household",
+  "promoted_family_member",
+  "legacy_data",
+  "create_household_profile",
+  "add_as_family_member"
+ ],
+ "fields": [
+  {
+   "default": "LEGD-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "LEGD-.#####"
+  },
+  {
+   "fieldname": "record_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Record Type",
+   "options": "Family Member\nHousehold"
+  },
+  {
+   "fieldname": "external_household_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "External Household Code"
+  },
+  {
+   "fieldname": "external_member_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "External Member Code"
+  },
+  {
+   "fieldname": "legacy_source_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Legacy Source Name"
+  },
+  {
+   "fieldname": "legacy_import_batch",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Legacy Import Batch"
+  },
+  {
+   "fieldname": "legacy_survey_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Legacy Survey Date"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_legacy_record",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Legacy Record"
+  },
+  {
+   "fieldname": "household_head_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Household head name"
+  },
+  {
+   "fieldname": "person_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Person name"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Phone number"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Organization"
+  },
+  {
+   "fieldname": "zone_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Zone name"
+  },
+  {
+   "fieldname": "ward_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Ward name"
+  },
+  {
+   "fieldname": "settlement_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Settlement name"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Age"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "\nMale\nFemale\nOthers\nUnknown"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_promoted_to_core",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is promoted to core"
+  },
+  {
+   "fieldname": "promoted_household",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Promoted household",
+   "options": "Household Profile",
+   "read_only": 1
+  },
+  {
+   "fieldname": "promoted_family_member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Promoted family member",
+   "options": "Family Member",
+   "read_only": 1
+  },
+  {
+   "fieldname": "legacy_data",
+   "fieldtype": "Long Text",
+   "label": "Legacy Data"
+  },
+  {
+   "depends_on": "doc.record_type === \"Household\" && !doc.is_household_promoted",
+   "fieldname": "create_household_profile",
+   "fieldtype": "Button",
+   "label": "Create Household Profile"
+  },
+  {
+   "depends_on": "doc.record_type === \"Family Member\" &&\r\n!doc.is_member_promoted &&\r\ndoc.promoted_household",
+   "fieldname": "add_as_family_member",
+   "fieldtype": "Button",
+   "label": "Add as Family Member"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:39:17.794030",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Legacy Survey Dump",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": " external_household_code, external_member_code, household_head_name, ward_name, settlement_name",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

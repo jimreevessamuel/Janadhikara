@@ -1,0 +1,308 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_import": 1,
+ "autoname": "format:HHID{####}",
+ "creation": "2026-03-11 12:48:54.917731",
+ "default_view": "Report",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_cdaf",
+  "source",
+  "legacy_household_code",
+  "section_break_arif",
+  "name_of_the_surveyor_id",
+  "name_of_the_surveyor",
+  "contact_number_of_the_surveyor",
+  "household_details_section",
+  "settlement_name",
+  "ward",
+  "cluster_name",
+  "zone_name",
+  "name_of_the_organization",
+  "column_break_cqgd",
+  "name_of_the_slum__settlement",
+  "street_name__lane_name",
+  "house_number_address",
+  "consent_information_section",
+  "consent_content",
+  "section_break_uwyk",
+  "column_break_sreu",
+  "name_of_the_respondent",
+  "agree_to_share_information",
+  "contact_number_of_the_respondent",
+  "hh_head",
+  "annual_household_income",
+  "column_break_hbas",
+  "family_member_summary",
+  "section_break_ceer",
+  "validation_status",
+  "verified_by",
+  "verified_on",
+  "title_summary"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_cdaf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Source",
+   "options": "\nNew\nLegacy"
+  },
+  {
+   "depends_on": "doc.source === \"Legacy\"",
+   "fieldname": "legacy_household_code",
+   "fieldtype": "Data",
+   "label": "Legacy household code",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "section_break_arif",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "verified_by.full_name",
+   "fieldname": "name_of_the_surveyor_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of the surveyor / partner team member",
+   "options": "Partner Team Member",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "name_of_the_surveyor_id.name_of_the_partner_team_member",
+   "fieldname": "name_of_the_surveyor",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Staff Name"
+  },
+  {
+   "fetch_from": "name_of_the_surveyor_id.contact_number_of_the_team_member",
+   "fieldname": "contact_number_of_the_surveyor",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contact number of the surveyor",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "household_details_section",
+   "fieldtype": "Section Break",
+   "label": "Household details"
+  },
+  {
+   "fieldname": "settlement_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Slum / Settlement Name",
+   "mandatory_depends_on": "doc.source !== \"Legacy\"",
+   "options": "Slum - Settlement Name",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "settlement_name.ward_name",
+   "fieldname": "ward",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Ward / Panchayat Name",
+   "options": "Ward Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "settlement_name.cluster_name",
+   "fieldname": "cluster_name",
+   "fieldtype": "Link",
+   "label": "Cluster Name",
+   "options": "Cluster Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "settlement_name.zone_name",
+   "fieldname": "zone_name",
+   "fieldtype": "Link",
+   "label": "Zone Name",
+   "options": "Zone Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "settlement_name.organization",
+   "fieldname": "name_of_the_organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of the organization",
+   "options": "Organization"
+  },
+  {
+   "fieldname": "column_break_cqgd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "settlement_name.settlement_name",
+   "fieldname": "name_of_the_slum__settlement",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of the Slum or Settlement",
+   "mandatory_depends_on": "doc.source !== \"Legacy\""
+  },
+  {
+   "fieldname": "street_name__lane_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Street name / lane name"
+  },
+  {
+   "fieldname": "house_number_address",
+   "fieldtype": "Small Text",
+   "label": "House number / address",
+   "mandatory_depends_on": "doc.source !== \"Legacy\""
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "consent_information_section",
+   "fieldtype": "Section Break",
+   "label": "Consent Information"
+  },
+  {
+   "fieldname": "consent_content",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Consent Information",
+   "options": "<h4>Consent for Data Collection</h4>\n\n<p>\nWe are collecting personal information to support welfare and entitlement services.\nThis includes access to education, health, nutrition, and social protection schemes.\n</p>\n\n<ul>\n  <li>Your participation is voluntary</li>\n  <li>Your data will be used only for welfare purposes</li>\n  <li>You may withdraw consent at any time</li>\n</ul>\n\n<hr>\n\n<h4>Help, Complaints &amp; Clarifications</h4>\n\n<p>\nIf you have any questions, complaints, or concerns regarding this survey or the\ninformation collected, you may contact the surveyor using the details below.\n</p>\n\n<p>\n<b>Name of the staff:</b>\n<span id=\"surveyor_name\">\u2014</span><br>\n<b>Contact Number:</b>\n<span id=\"surveyor_phone\">\u2014</span>\n</p>\n\n<p style=\"font-size:12px; color:#555;\">\nYou may use the above contact details to raise complaints, request corrections,\nor withdraw your consent.\n</p>",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_uwyk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_sreu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "name_of_the_respondent",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name of the respondent",
+   "mandatory_depends_on": "doc.source !== \"Legacy\""
+  },
+  {
+   "fieldname": "agree_to_share_information",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Agree to share information",
+   "mandatory_depends_on": "doc.source !== \"Legacy\"",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:\ndoc.agree_to_share_information==\"Yes\"",
+   "fieldname": "contact_number_of_the_respondent",
+   "fieldtype": "Data",
+   "label": "Contact number of the respondent",
+   "length": 10
+  },
+  {
+   "depends_on": "eval: doc.agree_to_share_information==\"Yes\" || doc.source===\"Legacy\"",
+   "fieldname": "hh_head",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of the Household Head",
+   "mandatory_depends_on": "eval: doc.agree_to_share_information==\"Yes\" || doc.source===\"Legacy\""
+  },
+  {
+   "fieldname": "annual_household_income",
+   "fieldtype": "Currency",
+   "label": "Annual Household Income",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hbas",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "family_member_summary",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Family member summary"
+  },
+  {
+   "fieldname": "section_break_ceer",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "doc.source == \"Legacy\"",
+   "fieldname": "validation_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Validation status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Verified By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Verified On"
+  },
+  {
+   "fieldname": "title_summary",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Title Summary",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Family Member",
+   "link_fieldname": "household_id"
+  },
+  {
+   "link_doctype": "Basic household facilities",
+   "link_fieldname": "hh_id"
+  }
+ ],
+ "modified": "2026-06-18 17:43:08.178621",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Household Profile",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "search_fields": "settlement_name, hh_head",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title_summary"
+}

@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-05-26 15:40:50.677094",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "settlement",
+  "ward",
+  "organization",
+  "cluster",
+  "zone"
+ ],
+ "fields": [
+  {
+   "fieldname": "settlement",
+   "fieldtype": "Link",
+   "label": "Settlement",
+   "options": "Slum - Settlement Name"
+  },
+  {
+   "fetch_from": "settlement.ward_name",
+   "fieldname": "ward",
+   "fieldtype": "Link",
+   "label": "Ward",
+   "options": "Ward Name"
+  },
+  {
+   "fetch_from": "settlement.organization",
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "label": "Organization",
+   "options": "Organization"
+  },
+  {
+   "fetch_from": "settlement.cluster_name",
+   "fieldname": "cluster",
+   "fieldtype": "Link",
+   "label": "Cluster",
+   "options": "Cluster Name"
+  },
+  {
+   "fetch_from": "settlement.zone_name",
+   "fieldname": "zone",
+   "fieldtype": "Data",
+   "label": "Zone"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-18 17:41:51.579333",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "PTM Settlement Assignment",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

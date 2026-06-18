@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:EVTS-.YYYY.-",
+ "creation": "2026-05-07 11:53:13.057718",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "event",
+  "event_name",
+  "column_break_rmjs",
+  "session_number",
+  "session_date",
+  "organization",
+  "cluster",
+  "cluster_name",
+  "zone",
+  "zone_name",
+  "details_section",
+  "duration_hours",
+  "topics_covered"
+ ],
+ "fields": [
+  {
+   "default": "EVTS-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming series",
+   "options": "EVTS-.YYYY.-",
+   "read_only": 1
+  },
+  {
+   "fieldname": "event",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Event",
+   "options": "Event Master",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "event.event_name",
+   "fieldname": "event_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Event Name"
+  },
+  {
+   "fieldname": "column_break_rmjs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "session_number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Session Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "session_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Session Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "event.organization",
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "label": "Organization",
+   "options": "Organization",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "event.cluster",
+   "fieldname": "cluster",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Cluster",
+   "options": "Cluster Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "cluster.cluster_name",
+   "fieldname": "cluster_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Cluster Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "cluster.zone",
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Zone",
+   "options": "Zone Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "zone.zone_name",
+   "fieldname": "zone_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Zone Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "duration_hours",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Duration (Hours)"
+  },
+  {
+   "fieldname": "topics_covered",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Topics Covered"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:46:21.933162",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Event Session",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "event_name, session_number",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

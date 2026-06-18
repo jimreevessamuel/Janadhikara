@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-04-02 12:07:58.848058",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_the_entitlement",
+  "entitlement_scope",
+  "naming_series",
+  "entitlement_type",
+  "entitlement_domain",
+  "scheme_status",
+  "min_eligible_age",
+  "max_eligible_age",
+  "eligible_gender",
+  "eligible_state",
+  "eligible_caste",
+  "min_income",
+  "max_income",
+  "eligibility_description",
+  "renewal_required"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_the_entitlement",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of the entitlement"
+  },
+  {
+   "fieldname": "entitlement_scope",
+   "fieldtype": "Select",
+   "label": "Entitlement scope",
+   "options": "\nIndividual\nHousehold"
+  },
+  {
+   "default": "WE-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "WE-.#####"
+  },
+  {
+   "fieldname": "entitlement_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Entitlement type",
+   "options": "\nScheme\nKey Document"
+  },
+  {
+   "fieldname": "entitlement_domain",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Entitlement domain",
+   "options": "\nDisaster Relief\nEducation\nHealth\nHousing\nIdentity & Documentation\nLabour Welfare\nLivelihood\nSocial Security / Pension\nWomen & Child Welfare"
+  },
+  {
+   "fieldname": "scheme_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Scheme status",
+   "options": "\nActive\nClosed\nPilot"
+  },
+  {
+   "depends_on": "eval:doc.entitlement_type==\"Scheme\"",
+   "fieldname": "min_eligible_age",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Min eligible age"
+  },
+  {
+   "depends_on": "eval:doc.entitlement_type==\"Scheme\"",
+   "fieldname": "max_eligible_age",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Max eligible age"
+  },
+  {
+   "depends_on": "eval:doc.entitlement_type==\"Scheme\"",
+   "fieldname": "eligible_gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Eligible gender",
+   "options": "\nAny\nMale\nFemale"
+  },
+  {
+   "depends_on": "eval:doc.entitlement_type==\"Scheme\"",
+   "fieldname": "eligible_state",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Eligible state",
+   "options": "\nAny\nKarnataka"
+  },
+  {
+   "depends_on": "eval:doc.entitlement_type==\"Scheme\"",
+   "fieldname": "eligible_caste",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Eligible caste",
+   "options": "\nAny\nGeneral\nOBC\nSC\nST"
+  },
+  {
+   "depends_on": "eval:doc.entitlement_type==\"Scheme\"",
+   "fieldname": "min_income",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Min income",
+   "precision": "0"
+  },
+  {
+   "depends_on": "eval:doc.entitlement_type==\"Scheme\"",
+   "fieldname": "max_income",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Max income",
+   "precision": "0"
+  },
+  {
+   "fieldname": "eligibility_description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Eligibility Description"
+  },
+  {
+   "default": "0",
+   "fieldname": "renewal_required",
+   "fieldtype": "Check",
+   "label": "Renewal required"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:40:04.194898",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Entitlements",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "name_of_the_entitlement, entitlement_type",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name_of_the_entitlement"
+}

@@ -1,0 +1,220 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:EVT-.YYYY.-",
+ "creation": "2026-05-07 11:39:21.981127",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "event_name",
+  "audience_type",
+  "event_type",
+  "focus_group",
+  "column_break_qjat",
+  "organization",
+  "cluster",
+  "zone",
+  "schedule_section",
+  "start_date",
+  "end_date",
+  "is_multi_day",
+  "total_sessions",
+  "column_break_jldg",
+  "venue",
+  "venue_if_other",
+  "venue_location",
+  "conducted_by",
+  "details_section",
+  "description",
+  "event_details"
+ ],
+ "fields": [
+  {
+   "default": "EVT-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming series",
+   "options": "EVT-.YYYY.-",
+   "read_only": 1
+  },
+  {
+   "fieldname": "event_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Event Name"
+  },
+  {
+   "fieldname": "audience_type",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Audience Type",
+   "options": "\nCommunity / External\nProgram Team / Partner Staff"
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Event Type",
+   "options": "\nAwareness Session\nCapacity Building\nCamp\nMeeting\nWorkshop\nTraining\nReflection meeting",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "focus_group",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Focus Group",
+   "options": "\nChildren\nYouth\nWomen\nFarmers\nPregnant Women\nGeneral\nProgram Staff\nPartner Staff\nTrainers\nCoordinators\nField Team\nAdolescents",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "column_break_qjat",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Organization",
+   "options": "Organization"
+  },
+  {
+   "fieldname": "cluster",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Cluster",
+   "options": "Cluster Name"
+  },
+  {
+   "fetch_from": "cluster.zone",
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Zone",
+   "options": "Zone Name"
+  },
+  {
+   "fieldname": "schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Schedule"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_multi_day",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Multi Day",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_sessions",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Sessions"
+  },
+  {
+   "fieldname": "column_break_jldg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "venue",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Venue Type",
+   "options": "\nCommunity\nTraining centre\nOther"
+  },
+  {
+   "depends_on": "eval:doc.venue==\"Other\"",
+   "fieldname": "venue_if_other",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Venue If other"
+  },
+  {
+   "depends_on": "eval:doc.venue==\"Community\"",
+   "fieldname": "venue_location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Venue Location",
+   "options": "Slum - Settlement Name"
+  },
+  {
+   "fieldname": "conducted_by",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Conducted By"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "event_details",
+   "fieldtype": "Attach",
+   "label": "Event details"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Event Session",
+   "link_fieldname": "event"
+  },
+  {
+   "link_doctype": "Event Attendance",
+   "link_fieldname": "event"
+  }
+ ],
+ "modified": "2026-06-18 17:46:13.648186",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Event Master",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "event_name, audience_type, event_type, organization, cluster",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "event_name"
+}

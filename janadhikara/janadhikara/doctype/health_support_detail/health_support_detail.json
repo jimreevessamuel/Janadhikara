@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-06-05 11:00:47.934805",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "support_type",
+  "amount",
+  "quantity__details",
+  "provider",
+  "date",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "support_type",
+   "fieldtype": "Select",
+   "label": "Support Type",
+   "options": "\nCash\nMedicine\nTreatment Support\nTransport\nFood / Ration\nClothing\nAssistive Device\nInsurance\nAccommodation\nCounselling / Therapy\nOther In-kind Support"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "precision": "0"
+  },
+  {
+   "fieldname": "quantity__details",
+   "fieldtype": "Data",
+   "label": "Quantity / Details"
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "label": "Provider",
+   "options": "Healthcare Provider"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-18 17:41:11.539321",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Health Support Detail",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

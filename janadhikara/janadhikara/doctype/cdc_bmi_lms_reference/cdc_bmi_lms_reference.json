@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_import": 1,
+ "creation": "2026-04-14 17:51:43.683429",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "gender",
+  "age_months",
+  "l",
+  "m",
+  "s"
+ ],
+ "fields": [
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "\nMale\nFemale",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "age_months",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Age in months",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "l",
+   "fieldtype": "Float",
+   "label": "L (Lambda)",
+   "precision": "6"
+  },
+  {
+   "fieldname": "m",
+   "fieldtype": "Float",
+   "label": "M (Median BMI)",
+   "precision": "6"
+  },
+  {
+   "fieldname": "s",
+   "fieldtype": "Float",
+   "label": "S (Coefficient of Variation)",
+   "precision": "6"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:37:11.898214",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "CDC BMI LMS Reference",
+ "owner": "jimreeves.samuel@azimpremjifoundation.org",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

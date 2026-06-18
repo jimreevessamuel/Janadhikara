@@ -1,0 +1,156 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_import": 1,
+ "autoname": "naming_series:SS-.####",
+ "creation": "2026-03-13 15:36:05.900162",
+ "default_view": "Report",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "settlement_name",
+  "ward_name",
+  "administration_type",
+  "administration_area_name",
+  "category",
+  "column_break_upvv",
+  "mla_constituency",
+  "mp_constituency",
+  "cluster_name",
+  "cluster_name_display",
+  "zone_name",
+  "organization"
+ ],
+ "fields": [
+  {
+   "default": "SS-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming series",
+   "options": "SS-.####"
+  },
+  {
+   "fieldname": "settlement_name",
+   "fieldtype": "Data",
+   "label": "Slum Settlement Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ward_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Ward Name / Panchayat Name",
+   "options": "Ward Name"
+  },
+  {
+   "fieldname": "administration_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Administration Type",
+   "options": "Administration Type",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "administration_area_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Administration area name"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "\nNotified\nRecognised\nIdentified\nUnlisted"
+  },
+  {
+   "fieldname": "column_break_upvv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mla_constituency",
+   "fieldtype": "Select",
+   "label": "MLA constituency",
+   "options": "\nAnekal\nB.T.M. Layout\nBangalore South\nBasavanagudi\nBommanahalli\nByatarayanapura\nC V Raman Nagar\nChamrajpet\nChickpet\nDasarahalli\nGandhi Nagar\nGovindraj Nagar\nHebbal\nHoskote\nJayanagar\nKrishnarajapuram\nMahadevapura\nMahalakshmi Layout\nMalleshwaram\nPadmanabhanagar\nPulakeshinagar\nRajaji Nagar\nRajarajeshwarinagar\nSarvagnanagar\nShanti Nagar\nShivajinagar\nVijayanagara\nYelahanka\nYeshwantpur\nMagadi",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "mp_constituency",
+   "fieldtype": "Select",
+   "label": "MP constituency",
+   "options": "\nBangalore North\nBangalore South\nBangalore Central\nBangalore Rural"
+  },
+  {
+   "fieldname": "cluster_name",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Cluster ID / Name",
+   "options": "Cluster Name"
+  },
+  {
+   "fetch_from": "cluster_name.cluster_name",
+   "fieldname": "cluster_name_display",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Cluster Name Display",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "cluster_name.zone",
+   "fieldname": "zone_name",
+   "fieldtype": "Link",
+   "label": "Zone Name",
+   "options": "Zone Name",
+   "read_only": 1,
+   "sort_options": 1
+  },
+  {
+   "fieldname": "organization",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Organization",
+   "options": "Organization",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-06-18 17:44:41.585433",
+ "modified_by": "Administrator",
+ "module": "janadhikara",
+ "name": "Slum - Settlement Name",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "settlement_name, ward_name, administration_area_name",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "settlement_name"
+}
