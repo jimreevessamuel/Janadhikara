@@ -256,3 +256,11 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+
+# Scheduled Tasks (carried over from the V15 app: daily age + child/youth recalculation)
+# Do NOT add a `fixtures = [...]` line - it overwrites the live Workspace on every migrate.
+scheduler_events = {
+	"daily": [
+		"janadhikara.tasks.update_family_member_ages",
+	],
+}
